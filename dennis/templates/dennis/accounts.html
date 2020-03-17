@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings</title>
+    <style>
+    .row {
+        display: flex;
+    }
+    img{
+        width : 200px;
+        height : 200px;
+        image-size :cover;
+    }
+    </style>
+</head>
+<body>
+    Accounts Settings
+
+    <div class="container">
+        <div class="row">
+            <div class="col-1"> 
+                <p>From request.user make relation with customer Table and from customer Table access the "profile_pic" <br> and url is used to access the url of imageField</p>
+                <img src="{{request.user.customer.profile_pic.url}}" alt="">
+             </div>
+            <div class="col-2"> 
+            
+                <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                    {{form.as_p}}
+                    <input type="submit" value = "Update">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

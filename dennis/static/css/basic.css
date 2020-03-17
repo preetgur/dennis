@@ -1,0 +1,172 @@
+body
+{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.navbar
+{
+    display: flex;
+    border-left: 10px solid salmon;
+    border-right: 10px solid salmon;
+
+    justify-content:space-around;
+    background: black;
+}
+
+.navbar > .logo 
+{
+    align-self: center;
+    font-size: 40px;
+    text-decoration: none;
+    color: burlywood;
+}
+
+.navbar > ul > li
+{
+    display: inline-block;
+    border : 1px solid white;
+    border-radius: 2px;
+
+
+}
+
+
+.navbar > ul >li >a
+{
+    list-style-type: none;
+    font-size: 22px;
+    margin :10px;
+    text-decoration: none;
+    color: white;
+    
+
+}
+
+
+/* order : pending deliverd */
+
+.order
+{
+    display: flex;
+    border: 1px solid black;
+    
+    height: auto;
+    font-size: 20px;
+    margin: 10px;
+    text-align: center;
+    font-size: 30px;
+
+    color: white;
+}
+
+.order > .total_order
+{
+    background: darkturquoise;
+ 
+    border : 1px solid black;
+    flex: 30%;
+    margin: 10px;
+    padding: 10px;
+
+   
+}
+
+.order > .deliverd
+{
+    background: darkturquoise;
+
+    border : 1px solid black;
+    flex: 30%;
+    margin: 10px;
+    padding: 10px;
+
+
+}
+
+.order > .pending
+{
+    background: darkturquoise;
+
+    border : 1px solid black;
+    flex: 30%;
+    margin: 10px;
+    padding: 10px;
+
+
+}
+
+
+.flex2 
+{
+    display: flex;
+   
+    border : 1px solid black;
+    margin: 10px;
+    text-align: center;
+}
+
+
+
+.flex2 > .customer
+{
+    flex:30%;
+    border : 1px solid black;
+
+}
+
+.flex2 > .customer >table, .order_placed >table {
+       
+       background: blanchedalmond;
+       text-align: center;
+       display: flex;
+       justify-content: center;
+       height: auto;
+}
+
+.flex2 > .order_placed
+{
+    flex:60%;
+    border : 1px solid blue;
+
+}
+
+.flex2 > table
+{
+    background : cadetblue;
+}
+
+
+.flex3
+{
+    display:flex;
+    justify-content:space-between;
+    margin:20px;
+    padding:20px;
+    background:blanchedalmond;
+
+}
+.flex3 >.table
+{
+    border:1px solid black;
+    align-self:center;
+    color :tomato;
+}
+
+.flex3 >.search
+{
+    border :1px solid black;
+    align-self:center;
+    justify-content:center;
+}
+
+
+.btn{
+    border: 1px solid black;
+    border-radius: 2px;
+    margin: 5px;
+    color: white;
+    background: black;
+    text-decoration: none;
+}

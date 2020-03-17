@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-1"> Register
+
+            <form action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+
+                {{form.username.label}}
+                {{form.username}} <br>
+
+                {{form.email.label}}
+                {{form.email}} <br>
+
+                {{form.password1.label}}
+                {{form.password1}} <br>
+
+                {{form.password2.label}}
+                {{form.password2}} <br>
+
+                {{form.errors}}
+                <input type="submit" value="Create User">
+
+                </form>
+             </div>
+            <div class="col-2"> </div>
+
+        </div>
+    </div>
+</body>
+</html>

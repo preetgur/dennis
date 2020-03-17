@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer</title>
+    <link rel="stylesheet" href="{% static 'css/customer.css' %}">
+
+</head>
+<body>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-1">
+                    <table>
+
+                        <tr> 
+                        <th>Cutomer Name</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        </tr>
+
+                        <tr>
+                        <td> {{customer.name}}</td>
+                        <td> {{customer.email}}</td>
+                        <td> {{customer.mobile}}</td>
+                        </tr>
+
+                    </table>
+                </div>
+
+                <div class="col-2">
+                     <table>
+
+                        <tr>
+                            <th>Order Name</th>
+                            <th>Order Date</th>
+                            <th>Status</th>
+                        </tr>
+                    {% for i in order_detail%}
+                   
+                    <tr>
+                        <td>{{i.order_name}} </td>
+                        <td>{{i.placed_on}} </td>
+                        <td>{{i.order_status}} </td>
+
+                        
+                    </tr>
+                    {% endfor %}
+
+                    </table>
+                </div>
+            </div>
+           
+
+            <div class="row">
+                <div class="col-1">
+                 <a href="{% url 'multiple_order' customer.id%}">Create Mulitple order</a>
+                </div>
+
+                           
+            </div>
+
+                <div class="row">
+                    <div>
+                     <p>
+                     First Install "django_filter" <br>
+                     Listed in Installed Apps "django_filters" <br>
+                     Create "filters.py" file <br>
+                     Import django_filter <br>
+                     Import models <br>
+
+                     This is same as like forms.py
+
+                    </p>
+                     </div>  
+
+                    
+
+                     <div>
+                     Class Order_filter(django_filters.FilterSet): <br>
+
+                     Class Meta : <br>
+                     model = Order <br>
+                     fields = "__all__"
+
+                     </div>
+
+                      <div>
+                     No need to use render template <br>
+                     In views.py <br>
+                     customer = Customer.objects.get(id=pk)  <br>
+                      order_detail = customer.order_set.all() <br>
+                    my_filter= Order_filter(request.GET,queryset=order_detail)  <br>
+                    order_detail = my_filter.qs
+                     </div>
+                    
+                </div>
+
+                <div class="row">
+                    <form method="get" >
+                        {{my_filter.form}}
+
+                        <input type="submit" value="search">
+                    </form>
+                </div>
+            
+           
+        </div>    
+        
+       
+</body>
+</html>

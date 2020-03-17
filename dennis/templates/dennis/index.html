@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dennis</title>
+    <link rel="stylesheet" href="{% static 'css/basic.css' %}">
+</head>
+<body>
+  
+        <nav class="navbar">
+         <a class="logo" href="{% url 'home'%}">Logo</a>
+            <ul>
+                <li> <a href="{% url 'home'%}">Dashboard</a></li>
+                <li> <a href="{% url 'home'%}">Products</a></li>
+                
+            </ul>
+
+            <span style="color:white">Hello, {{request.user}}</span>
+            <span> <a href="{% url 'logout'%}">Logout</a> </span>
+        </nav>
+   
+   <!-- First block -->
+
+        <div class="order">
+            <div class="total_order">Total Order
+                <hr>
+                {{total_orders}}
+               
+            </div>
+            <div class="deliverd">Order Deliverd
+                <hr>
+                    {{delivered}}
+            </div>
+            <div class="pending">Pending Order
+                <hr>
+                    {{pending}}
+            </div>
+
+
+            <div class="pending">Out For Delivery
+                <hr>
+                    {{out_delivery}}
+            </div>
+
+            <div class="pending">Order Placed
+                <hr>
+                    {{placed}}
+            </div>
+
+
+        </div>
+
+        <!-- Second block -->
+
+        <div class="flex2">
+
+            <div class="customer">
+                <h3>Customer</h3>
+                <table>
+                    <tr>
+                      <th>Name</th>
+                      <th>Mobile</th>
+                      <th>view</th>
+
+                    </tr>
+
+                    {% for i in customers%}
+                    <tr>
+                      <td>{{i.name}}</td>
+                      <td>{{i.mobile}}</td>
+                      <td><a class="btn" href="{% url 'customer' i.id%}">Details</a></td>
+                   </tr>
+                    {% endfor %}
+                    
+                   
+                  </table>
+            </div>
+
+
+            <div class="order_placed">
+                <h3>Last 5 orders</h3>
+
+                <table>
+                    <tr>
+                      <th>Product Name</th>
+                      <th>Order By</th>
+
+                      <th>Date Ordered</th>
+                      <th>Status</th>
+                      
+                      <th>Update</th>
+                      <th>Delete</th>
+
+
+                    </tr>
+                    
+                    {% for i in order %}
+                    <tr>
+                      <td>{{i.order_name}}</td>
+                      <td>{{i.placed_by}}</td>
+                      <td>{{i.placed_on}}</td>
+                      <td>{{i.order_status}}</td>
+                      
+                      <td><a class="btn" href="{% url 'update_order' i.id %}"> Update</a></td>
+                      <td><a class="btn" href="{% url 'delete_order' i.id %}"> Delete</a></td>
+
+                    </tr>
+                  
+                    {% endfor %}
+                  </table>
+            </div>
+        </div>
+
+
+        <div class="flex3">
+
+            <div class="table"> 
+                <table>
+
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Product Category</th>
+                        <th>Price</th>
+                        <th>Added On</th>
+                        <th>Tags</th>
+
+                    </tr>
+                    {% for i in products%}
+                    <tr>
+                        <td>{{i.product_name}}</td>
+                        <td>{{i.product_category}}</td>
+                        <td>{{i.price}}</td>
+                        <td>{{i.product_added}}</td>
+                        <td>{{i.tags}}</td>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+
+            <!-- ######## -->
+
+            <div>
+                <a class="btn" href="{% url 'create_order' %}"> Create New Order </a>
+
+            </div>
+
+
+        </div>
+
+           
+        
+</body>
+</html>

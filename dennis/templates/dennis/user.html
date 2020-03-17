@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+
+    <style>
+    .row {
+        display:flex;
+        border : 1px solid black;
+        justify-content: space-around;
+        align-items: baseline;
+    }
+
+    .col-1
+    {
+        border : 1px solid red;
+        height: 350px;
+    }
+
+    img
+    {
+        width: 150px;
+        height: 150px;
+        border: 1px solid black;
+        display: block;
+        margin: auto;
+        border-radius: 50%;
+    }
+
+    p {
+        text-align: center;
+    }
+    .col-2
+    {
+        border: 1px solid blue;
+        padding: 20px;
+        margin: 54px;
+    }
+    </style>
+</head>
+<body>
+   <a href=" {% url 'accounts' %}">Account Settings</a> 
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-1">
+                Customer Table
+                <h1>{{request.user}}, Profile</h1>
+                <!-- Relationship bw two models : user and customer -->
+                <img src="{{request.user.customer.profile_pic.url}}" >
+
+                <p>{{request.user.customer.email}}</p>
+                <p>{{request.user.customer.mobile}}</p>
+
+            </div>
+
+            <div class="col-2">
+                Order Table
+                <h2>Item's Summary</h2>
+                <div>  
+                {% for i in order%}
+                    <br>
+                    {{i.order_name}}
+                    {{i.placed_on}}
+                    {{i.order_status}}
+                 {% endfor %}
+                </div>
+            </div>
+
+
+            <div class="col">
+                Order Table Queries <hr>
+                <div class="order">
+                    <div class="total_order">Total Order :
+                     
+                        {{total_orders}}
+                       
+                    </div>
+                    <div class="deliverd">Order Deliverd :
+                        
+                            {{delivered_orders}}
+                    </div>
+                    <div class="pending">Pending Order :
+                        
+                            {{pending_orders}}
+                    </div>
+        
+        
+                    <div class="pending">Out For Delivery :
+                      
+                            {{out_for_delivery}}
+                    </div>
+        
+                    <div class="pending">Order Placed :
+                       
+                            {{placed_orders}}
+                    </div>
+        
+        
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- second Row -->
+
+        <div class="row">
+
+           
+        </div>
+    </div>
+</body>
+</html>

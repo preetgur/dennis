@@ -1,0 +1,130 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    background:burlywood;;
+    color : darkred;
+}
+
+.basic 
+{
+    border :1px solid dashed;
+}
+
+.basic>p
+{
+    border: 1px solid black;
+    margin:10px;
+    padding:10px;
+    color : black;
+    background : seagreen;
+    justify-content: center;
+}
+
+h2 {
+    background: black;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+p
+{
+    font-size: 2vw;
+    margin: 10px;
+}
+
+.container {
+    display: flex;
+
+}
+
+div.code > pre 
+{
+    width: fit-content;
+    border: 1px solid black;
+    color: black;
+}
+
+.import > code
+{
+    background : black;
+    color : white;
+}
+
+.flex-container
+{
+    display: flex;
+
+}
+
+.flex-left
+{
+    flex:50%;
+    border :1px solid black;
+
+}
+
+.flex-left > h1
+{
+    text-align: center;
+    margin : 10px;
+}
+
+.flex-right > h1
+{
+    text-align: center;
+    margin : 10px;
+}
+
+.flex-right
+{
+    flex : 50%;
+    border :1px solid brown;
+
+}
+
+code 
+{
+    background : black;
+    color : white ;
+    margin-left: 15px;
+}
+
+.code > img 
+{   
+    display: flex;
+    max-width: 95%;
+    width: 500px;
+    height: auto;
+    margin: 10px;
+    border: 1px dashed black;
+}
+
+article > h3{
+
+    color: darkred;
+    text-align: center;
+    font-size: 25px;
+    margin: 32px;
+}
+
+@media screen and (max-width: 700px) {
+    
+    .flex-container
+    {
+        flex-direction: column;
+    }
+
+    p
+    {
+        font-size: 4vw;
+        margin: 10px;
+    }
+
+     code 
+     {
+         background : black;
+         color : white ;
+         margin-left: 15px;
+     }
+  }

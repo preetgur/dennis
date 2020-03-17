@@ -1,0 +1,217 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rest api</title>
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+       
+    </head>
+
+    <body>
+
+        <header>
+            <h2>Rest Api in Django</h2>
+        </header>
+
+        <div class="basic">
+        <p>
+        In the context of Web development, usually when we are talking about a RESTful API we are referring to Web Services (or Web APIs). It’s a common way to expose parts of your application to third-parties (external applications and Websites). It can be data-oriented, in a sense that your Web service (the RESTful API), simply make available the information you store in your databases using a common format, such as XML or JSON. This way, an external application can interact with your application and your data, without having to connect directly into your database. This way, it doesn’t matter if your database is MySQL or PostgreSQL, or if your application was written in Java or Python. But RESTful APIs can also be used to modify data</p>
+        </div>
+
+        <div class="flex-container">
+
+            <div class="flex-left">
+                <h1>How To Use REST API IN Django</h1>
+                <p>Create Project in Django</p>
+                <code>>> django-admin startproject rest_api</code>
+                <p>Create App in Django</p>
+                <code>>> python manage.py startapp api</code>
+                <p> Install Django Rest Framework  </p>
+                <code>>> pip install djangorestframework</code>
+                <p> Add 'rest_framework' to INSTALLED_APPS in setting.py</p>
+
+                <!-- ################# -->
+
+                <article>
+                <h3>Creating Simple JsonResponse</h3>
+
+                    <div class="import">
+                        
+                        <p> First Import the json Response. </p>  
+                         
+                        <code>>> from django.http Import JsonResponse</code>
+                          
+                    </div>
+
+                    <p>Defining the Function in views.py</p>
+                    <div class="code">
+                        <img src="{% static 'api/image/json_data.PNG' %}" alt="">
+                        
+                    </div>
+                </article>
+
+       <!-- ##########  Create Rest Json -->
+
+
+            <article>
+                <h3>Creating Rest Json</h3>
+                <p>The core functionality of the Request object is the request.data attribute, which is similar to request.POST, but more useful for working with Web APIs.</p>
+
+                <p>REST framework also introduces a Response object, which is a type of TemplateResponse </p>
+                <div class="import">
+                    <p>Import api_view decorators from Rest Framework :</p>
+                        <code>>> from rest_framework.decorators import api_view</code>
+                    <p>Import Rest Response : </p> <code>>> from rest_framework.response import Response</code>
+                </div>
+                <p>Defining The Function in views.py</p>
+                <div class="code">
+                    <img src="{% static 'api/image/json_rest.PNG' %}" alt="">
+                
+
+                </div>
+            </article>
+
+
+            <!-- ############# -->
+            <article>
+                <h3>Urls.py File in App folder</h3>
+                <div class="code">
+                    <img src="{% static 'api/image/json_url.PNG' %}" alt="">
+
+                </div>
+
+            </article>
+
+
+
+            </div>
+    
+            <div class="flex-right">
+                
+
+                <!-- ############ Api from database -->
+
+                <h1>Create Api From Database</h1>
+
+                <article>   
+                    <div>
+                   <p>  First Create Database in models.py  </p> 
+                    <div class="code">
+                    <img src="{% static 'api/image/json_model.PNG' %}" alt="">
+                    </div>
+                    <p> Register Your Model [Task]:</p> <code>>> admin.site.register(Task)</code> 
+                   <p>  Make migrations and migrate :</p>
+                    <code>>> python manage.py makemigrations </code><br>
+                    <code> >> python manage.py migrate</code> 
+                    <p> Make Superuser : </p>
+                    <code>>> python manage.py createsuperuser</code>
+                
+                    </div>
+                   
+                    <h3>Create Serializers.py in App folder </h3>
+                    <p>
+                    DRF’s Serializers convert model instances to Python dictionaires, which can then be rendered in various API appropriate formats - like JSON or XML. Similar to the Django ModelForm class, DRF comes with a concise format for its Serializers, the ModelSerializer class. It’s simple to use: Just tell it which fields you want to use from the model:
+                    </p>
+                    <div class="serializer code">
+                        <p>Just like the forms.py file</p>
+
+                        <div class="import">
+                            <p>Import serializer from rest_framework</p>
+                            <code>from rest_framework import serializers</code>
+                            <p>Import model</p>
+                            <code>from api.models. import Task</code>
+                        </div>
+                        
+                        <div class="code">
+                    <img src="{% static 'api/image/json_serializer.PNG' %}" alt="">
+                        
+                            
+                        </div>
+                    
+                    </div>
+                    <div class="import">
+                        <p>Import Serializer and models in views.py</p>
+                        <code>from api.serializers import Task_Serializer </code><br>
+                        <code>   from api.models import Task  </code>  
+                    </div>
+
+                    <div class="code">
+                     <p>Show's all element in the Model as Api format</p>   
+                    <img src="{% static 'api/image/json_serial.PNG' %}" alt="">
+                    <p>Show the particular element based on the id passed in url</p>
+                    <img src="{% static 'api/image/json_serializer_detail.PNG' %}" alt="">
+                    <p>It creates the new entry in Database</p>
+                    <img src="{% static 'api/image/json_serializer_create.PNG' %}" alt="">
+                    <p>It show's the functionality of how to update the elementy</p>
+                    <img src="{% static 'api/image/json_serializer_update.PNG' %}" alt="">
+                    <p>It show's how to delete the element from database using api</p>
+                    <img src="{% static 'api/image/json_serializer_delete.PNG' %}" alt="">
+
+                    
+
+
+                    </div>
+                </article>
+
+            </div>
+
+        </div>
+
+
+
+      <!-- User Authentication -->
+
+      <div class="flex-container">
+        <div class="sidebar"><h3> User Authentication </h3></div>
+
+        <div class="main">
+            <p> On the authentication section of the Django Rest Framework website there are many different approaches mentioned.
+            </p>
+        
+             <p> The third-party django-rest-auth library provides a set of pre-configured API endpoints for login, logout, registration, and can support social authentication too. We’ll use it here.</p>  
+        
+            <p>First step is to <strong> django-rest-auth </strong> and add it to our INSTALLED_APPS.</p>
+
+            <p>Note that we’ve added two lines here: both<strong> rest_framework.authtoken </strong> is Django Rest Framework’s token auth app and also <strong>  rest_auth </strong>which uses it. </p>
+
+            <p>    Then update our api/urls.py file. Make sure to add include as a top-line import and then the rest_auth package at rest-auth. </p>
+
+            <p>
+                And that’s literally it. Now we can migrate our changes and spin up the server to see what django-rest-auth has provided.
+            </p>
+
+            <p>
+                We have a working login endpoint at http://127.0.0.1:8000/rest-auth/login/
+            </p>
+
+            <p>
+                And a logout endpoint at http://127.0.0.1:8000/rest-auth/logout/.
+            </p>
+
+            <p> 
+                The result is a token for the user which can be used to authenticate future HTTP requests!
+            </p>
+
+            <p>
+                If you navigate over to the admin section again at http://127.0.0.1:8000/admin/ you can see there’s now an additional AUTH TOKEN section.
+
+                Click on it and you’ll see the token–named a KEY–for the only user. You can create new users within the Admin section, access the Login API endpoint, and it will generate a unique token for each new user.
+            </p>
+
+            <p> 
+                django-rest-auth also provides support for user registration, password reset/confirm/change, and even social media authentication. I’ll try to cover these in a future post too.
+
+                However for now with a small amount of code we’ve built a Django app, added the Django Rest Framework for API endpoints, and then used django-rest-auth to include authentication. Not bad!
+            </p>
+        </div>
+      
+
+      </div>
+
+    </body>
+
+</html>
